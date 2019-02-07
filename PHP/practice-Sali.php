@@ -16,7 +16,22 @@
 		<h1>PHP</h1>
 		
 		<?php // phpinfo();
-		echo "To get the version of PHP and other server configuration info use - phpinfo();"
+		echo "To get the version of PHP and other server configuration info use - phpinfo();";
+		echo "<br / ><br / >";
+		?>
+		
+		<?php // Turning on error reporting
+		echo "*** To turn on error reporting use - ini_set('display_errors', 'on')";
+		echo "<br / ><br / >";
+		echo "*** error_reporting(E_ALL);";
+		echo "<br / ><br / >";
+		echo "To find the Error logs on Windows";
+		echo "<br / >";
+		echo "Check C:/wamp/logs/php_error.log";
+		echo "<br / ><br / >";
+		
+		echo "In case of using Apache - please check  /etc/apache2/httpd.conf";
+		echo "<br / ><br / >";
 		?>
 		
 		<?php
@@ -1191,7 +1206,33 @@
 				echo "<br />";
 				echo "*** Not sending something is not equal as sending nothing in PHP";
 				echo "<br /><br />";
-				?>				
+				?>	
+
+				<?php
+				echo "<h2>PHP ERRORs</h2>";
+				echo "<br />";
+				echo "There are 4 types of errors";
+				echo "<br />";
+				echo "<strong>1. Fatal Errors</strong>";
+				echo "<br />";
+				echo "PHP understood the code but could not execute it";
+				echo "<br /><br />";
+				echo "<strong>2. Syntax Errors</strong>";
+				echo "<br />";
+				echo "PHP could not understand or process the code";
+				echo "<br />";
+				echo "<br /><br />";
+				echo "<strong>3. Warnings</strong>";
+				echo "<br />";
+				echo "PHP found problem, but was able to recover from it";
+				echo "<br />";
+				echo "<br /><br />";
+				echo "<strong>4. Notices</strong>";
+				echo "<br />";
+				echo "PHP is offering advice about a piecd of code";
+				echo "<br />";
+				
+				?>
 				
 			<br /><br />
 	</header>
