@@ -14,6 +14,11 @@
 	<!-- // Into -->
 	<header>
 		<h1>PHP</h1>
+		
+		<?php // phpinfo();
+		echo "To get the version of PHP and other server configuration info use - phpinfo();"
+		?>
+		
 		<?php
 		// Comments
 		echo "<h2>Comments in php</h2>";
@@ -856,6 +861,337 @@
 				echo 'The condition of the loop is not a comparison, instead it is an assignment operator'; 
 				echo 'next() can not '; 
 				?>
+				
+				<hr />
+				
+				<?php 
+				// Functions
+				echo "<h2>Functions</h2>"; 
+				echo "Function is a package of statements to accomplished on single task."; 
+				echo "<br />";
+				echo "Functions are case insensetive"; 
+				echo "<br /><br />";
+				echo 'function name($arg1, $arg2) {';
+				echo "<br /><br />";
+				echo 'The condition of the loop is not a comparison, instead it is an assignment operator'; 
+				echo "<br /><br />";
+
+				// Says hello to the users - Input: users name - Output: prints string
+				function say_hello($arg){
+					echo "Hi " . $arg . " from the function.";
+				}
+				
+				echo say_hello("Sali");
+				echo "<br />";
+				echo say_hello("Shiv");
+				
+				echo "<br /><br />";
+				echo '<strong>*** In PHP 4 and 5, we do not have to define a function before using/calling it anymore.</strong>'; 
+				echo "<br /><br />";
+				echo '<strong>*** In PHP 4 and 5, pre-process the page before running the whole script</strong>'; 
+				echo "<br />";
+				
+				say_hello_loudly("Sali");
+				say_hello_loudly("Shiv");
+				
+				echo "<br /><br />";
+				echo "Calling a function before defining it - In PHP 4, 5 and plus this is possible."; 
+				echo "<br />";
+				echo "Sali checked the current version which is 7.2.10 - but it still gives ERROR"; 
+				
+				function say_hello_loudly($arg){
+					echo "<br />";
+					echo "A very special, warm HELLO to " . $arg;
+				}
+				echo "<br /><br />";
+				echo "*** After defining a function, we can not redefined that again."; 
+				
+				echo "<br /><br />";
+				echo 'function better_hello($greeting, $user, $punc){ ';
+				echo "<br /><br />";
+				echo 'echo $greeting . " " . $user . $punc;';
+				echo "<br /><br />";
+				
+				function better_hello($greeting, $user, $punc){
+					echo $greeting . " " . $user . $punc . "<br />";
+				}
+				
+				better_hello("Hello ", 'Sali', "!!!");
+				echo "<br />";
+				echo ""; 
+				
+				// Returning value from a function
+				echo "<h2>Returning value from a function</h2>";
+				echo "Local variable need to be returned from a function before going out of scope"; 
+				echo "<br /><br />";
+				
+				echo 'function add($val1, $val2){ ';
+				echo "<br />";
+				echo	'$sum = $val1 + $val2;';
+				echo "<br />";
+				echo	'return $sum;';
+				echo "<br />";
+				echo	'}';
+				echo "<br />"; 
+				echo $sum;
+				echo "<br /><br />";
+				echo 'echo $sum;';
+				echo "<br />";
+				echo 'Gives ERROR - because $sum has local scopr which is only exists inside the function';
+				echo "<br />";
+				
+				echo "<br /><br />";
+				echo 'function add($val1, $val2){';
+				echo "<br />";
+				echo '$sum = $val1 + $val2;';
+				echo "<br />";
+				echo 'return $sum;';
+				echo "<br /><br />";
+				echo '$sumReturned = add(5, 8) - Output =   ';
+				
+				function add($val1, $val2){
+					$sum = $val1 + $val2;
+					return $sum;
+				}
+				$sumReturned = add(5, 8);
+				echo $sumReturned;
+
+				echo "<br /><br />";
+				echo "It is always wise to return something from a function even though it might be only null";
+				echo "<br /><br />";
+				
+				echo "<br />";
+				echo "<h2>Chinese Zodiac as a function</h2>"; 
+				echo 'function chinese_zodiac($year){ ';
+				echo "<br /><br />";
+				
+				echo 'echo chinese_zodiac(2019);';
+				echo "<br /><br />";
+				
+				function chinese_zodiac($year){
+					switch (($year - 4) % 12){
+					
+						case 0: return "Rat";
+						case 1: return "Ox";
+						case 2: return "Tiger";
+						case 3: return "Rabbit";
+						case 4: return "Dragon";
+						case 5: return "Snake";
+						case 6: return "Horse";
+						case 7: return "Goat";
+						case 8: return "Monkey";
+						case 9: return "Rooster";
+						case 10: return "Dog";
+						case 11: return "Pig";
+					}
+				}
+				
+				echo '2019 is ' . chinese_zodiac(2019) . ' Chinese year ';
+				echo "<br /><br />";
+				echo '2025 is ' . chinese_zodiac(2025) . ' Chinese year ';
+
+				echo "<br /><br />";
+				echo '*** Note: It is better to never have an echo/print from inside a function - always return a value and then print it';
+				echo "<br />";
+				echo 'In chinese_zodiac($year) function, we just return string and do not print inside it at all.'; 
+				
+				
+				// Returning multiple values from a function
+				echo "<h3>Returning multiple values from a function</h3>";
+				echo "Local variable need to be returned from a function before going out of scope"; 
+				echo "<br /><br />";
+				echo '*** Functions return only onething/value.';
+				
+				echo "<br /><br />";
+				echo 'function add_sub($arg1, $arg2){ ';
+				echo "<br />";
+				echo '$add = $arg1 + $arg2;';
+				echo "<br />";
+				echo '$sub = $arg1 - $arg2;';
+				echo "<br />";
+				echo 'return $add;';
+				echo '}';
+				echo "<br /><br />";
+				echo 'add_sub(15, 88) = ';
+				
+				function add_sub($arg1, $arg2){
+					$add = $arg1 + $arg2;
+					$sub = $arg1 - $arg2;
+					
+					return $add;
+				}
+				
+				echo add_sub(15, 88);
+				
+				echo "<br /><br />";
+				echo 'If I try -  return $add, $sub;'; 
+				echo "<br />";
+				echo 'Gives ERROR - because we can not return more than one value from function.';
+				echo "<br />";
+				echo "Now how can I return the subtraction from the function since a function can just return only onething";
+				echo "<br /><br />";
+				echo "*** We can return an array of values from a function since arrays can hold on to many values at a time";
+				echo "<br /><br />";
+				echo 'return array($add, $sub);';
+				echo "<br /><br />";
+				echo '$result_array = sub_add(15, 88);';
+				echo "<br /><br />";
+				echo 'echo "Add: " . $result_array[0];';
+				echo "<br /><br />";
+				
+				function sub_add($arg1, $arg2){
+					$add = $arg1 + $arg2;
+					$sub = $arg1 - $arg2;
+					
+					return array($add, $sub);
+				}
+				
+				$result_array = sub_add(15, 88);
+				
+				echo "<br />";
+				echo 'echo "Add: " . $result_array[0] => ';
+				echo "Add: " . $result_array[0] . '<br />';
+				echo "<br />";
+				echo 'echo "Sub: " . $result_array[1] => ';
+				echo "Sub: " . $result_array[1] . '<br />';
+				echo "<br /><br />";
+				
+				echo '<strong>*** Use <<<  list   >>> to assign and return array value from a function</strong>';
+				echo "<br />";
+				
+				function return_add_sub($arg1, $arg2){
+					
+					$add = $arg1 + $arg2;
+					$sub = $arg1 - $arg2;
+					
+					return array($add, $sub);
+				}
+				
+				list($add_result, $sub_result) = return_add_sub(20, 7);
+				echo "<br />";
+				echo 'list($add_result, $sub_result) = return_add_sub(20, 7);';
+				
+				echo "<br /><br />";
+				echo 'echo "Add: " . $add_result => ';
+				echo "Add: " . $add_result . '<br />';
+				echo "<br />";
+				echo 'echo "Sub: " . $sub_result => ';
+				echo "Sub: " . $sub_result . '<br />';
+				echo "<br /><br />";
+				
+				?>
+				
+				<hr />
+				
+				<?php
+				// Returning value from a function
+				echo "<h2>Scope and Global Variable</h2>";
+				echo "Variables are accessible inside their defined scopes"; 
+				echo "<br /><br />";
+				echo "Variable created inside a function has function scope";
+				echo "<br /><br />";
+				echo "*** In PHP, there are 2 main global scopes - 1. Global Scope - 2. Local Scope"; 
+				echo "<br /><br />";
+
+				echo '$bar = "Outside";'; // Global Scope
+				echo "<br />";
+				echo 'function foo(){ ';
+				echo "<br />";
+				echo 'if(isset($bar)){ ';
+				echo "<br />";
+				echo 'echo "\$bar from inside inside the foo() = " . $bar;';
+				echo "<br />";
+				echo '}';
+				echo "<br />";
+				echo '$bar = "Inside"; // Local Scope';
+				echo "<br />";
+				echo '$bar = "New Value";';
+				echo "<br />";
+				echo 'echo "\$bar from inside foo() = " . $bar;';
+				echo "<br />";
+				echo '}';
+				echo "<br /><br />";
+				
+				
+				$bar = "Outside"; // Global Scope
+				
+				function foo(){
+
+					if(isset($bar)){
+						echo '$bar from inside inside the foo() = ' . $bar;
+					}
+					$bar = "Inside"; // Local Scope
+					echo '$bar from inside foo() = ' . $bar;
+					echo "<br />";
+					$bar = "New Value";
+					echo "<br />";
+				}
+				
+				echo '$bar from outside the function = ' . $bar;
+				echo "<br />";
+				
+				foo();
+				
+				echo $bar;
+				
+				$bar = "Another New Value";
+				echo "<br />";
+				
+				
+				echo '$bar from outside the function but aftetr running the foo() = ' . $bar;
+				echo "<br />";
+				
+				echo "<br /><br />";
+				echo "*** It is very important to remeber that local variables can not override the global variables except if they are explicitly assigned."; 
+				
+				echo "<br /><br />";
+				echo "*** To use a global scope variable inside a function and let it change by function, we are going to use 'globa; $bar' inside the function"; 
+				echo "<br /><br />";
+				
+				$bar = "Outside"; // Global Scope
+				
+				function foo2(){
+					
+					global $bar;
+					if(isset($bar)){
+						echo 'global $bar from inside inside the foo() = ' . $bar;
+						echo "<br />";
+					}
+
+					echo '$bar from inside foo() = ' . $bar;
+					echo "<br />";
+				}
+				
+				echo '$bar from outside the function = ' . $bar;
+				echo "<br />";
+				
+				foo2();
+				
+				echo '$bar from outside the function = ' . $bar;
+				
+				echo "<br /><br />";
+				echo "*** Now everything inside and outside the function changed to <<< global  >>> scope variable";
+				echo "<br /><br />";
+				
+				// Setting default value for a variable
+				echo "function paint(\$room = 'office', \$color = 'blue'){";
+				echo "<br />";
+				echo 'return "The color of the {$room} is {$color}";';
+				echo "<br />";
+					 
+				function paint($room = 'office', $color = 'blue'){
+					 return "The color of the {$room} is {$color} . <br />";  
+				}
+
+				echo paint("office", "red");
+				echo "<br />";
+				echo paint(null, "red");
+				echo "<br />";
+				echo "NULL overrides the defualt values";
+				echo "<br />";
+				echo "*** Not sending something is not equal as sending nothing in PHP";
+				echo "<br /><br />";
+				?>				
 				
 			<br /><br />
 	</header>
